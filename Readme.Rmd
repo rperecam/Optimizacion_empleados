@@ -1,0 +1,74 @@
+# Análisis de Datos de Empleados con Shiny
+
+## Descripción del Proyecto
+
+Este proyecto consiste en una aplicación Shiny desarrollada en R para analizar datos de empleados. La aplicación permite a los usuarios filtrar datos por departamento, región y edad mínima, y visualizar diferentes métricas y relaciones a través de gráficos interactivos.
+
+## Estructura del Código
+
+### Librerías Utilizadas
+
+- `dplyr`: Para la manipulación de datos.
+- `readr`: Para la lectura de archivos CSV.
+- `shiny`: Para la creación de la aplicación web interactiva.
+- `ggplot2`: Para la creación de gráficos estáticos.
+- `DT`: Para la visualización de tablas de datos.
+- `plotly`: Para la creación de gráficos interactivos.
+- `corrplot`: Para la visualización de matrices de correlación.
+
+### Funciones Principales
+
+1. **`cargar_y_limpiar_datos(ruta_archivo)`**: Carga y limpia los datos desde un archivo CSV. Selecciona columnas relevantes y calcula nuevas métricas como `genero`, `educacion`, `calificacion_anterior`, `bono_anual` y `puntaje_entrenamiento`.
+
+2. **`calcular_productividad(datos)`**: Calcula la productividad de los empleados basándose en varias métricas ponderadas. La productividad se escala utilizando una función logística.
+
+3. **`detectar_outliers_salario(datos)`**: Detecta valores atípicos en la columna de salarios utilizando el rango intercuartílico (IQR).
+
+4. **`analizar_empleados_mayores(datos, edad_minima)`**: Filtra los empleados mayores de una edad mínima especificada.
+
+5. **`analisis_principal(ruta_archivo)`**: Realiza el análisis principal, incluyendo la carga de datos, cálculo de productividad, detección de valores atípicos y análisis de empleados mayores. Devuelve una lista con los datos completos y los datos de empleados a despedir.
+
+### Interfaz de Usuario (UI)
+
+La interfaz de usuario consta de un panel lateral para seleccionar filtros (departamento, región, edad mínima y rendimiento) y un panel principal con varias pestañas para visualizar gráficos y tablas:
+
+- **Mapa de Correlación**: Muestra matrices de correlación para los datos filtrados y todos los empleados.
+- **Distribución de Productividad**: Muestra la distribución de productividad para los datos filtrados y todos los empleados.
+- **Diagrama de caja de salarios**: Muestra un diagrama de caja de salarios para los datos filtrados y todos los empleados.
+- **Distribución de Edades**: Muestra la distribución de edades para los datos filtrados y todos los empleados.
+- **Salario vs Productividad**: Muestra la relación entre salario y productividad con líneas de regresión para los datos filtrados y todos los empleados.
+- **Gráfico 3D**: Muestra un gráfico 3D interactivo de edad, salario y productividad.
+- **Cantidad de Empleados por Departamento/Región**: Muestra la cantidad de empleados por departamento y región.
+- **Tabla de Candidatos a Despido**: Muestra una tabla con los empleados candidatos a despido.
+- **Datos de Empleados**: Muestra una tabla con los datos de los empleados filtrados.
+
+### Análisis
+
+El análisis se centra en evaluar la productividad de los empleados y detectar aquellos que podrían ser candidatos a despido basándose en su rendimiento y salario. La aplicación permite una comparación visual entre los datos filtrados y todos los empleados, proporcionando una visión integral del rendimiento y las características de los empleados en diferentes departamentos y regiones.
+
+### Resultados
+
+- **Distribución de Productividad**: La distribución de productividad permite identificar visualmente a los empleados con bajo rendimiento.
+- **Diagrama de caja de salarios**: Los valores atípicos en los salarios pueden indicar posibles candidatos a despido.
+- **Salario vs Productividad**: La relación entre salario y productividad ayuda a identificar si los empleados con altos salarios están justificados por su productividad.
+- **Cantidad de Empleados por Departamento/Región**: Proporciona una visión general de la distribución de los empleados en la empresa.
+
+### Conclusiones
+
+La aplicación Shiny proporciona una herramienta poderosa para el análisis de datos de empleados, permitiendo a los usuarios filtrar y visualizar datos de manera interactiva. Las visualizaciones ayudan a identificar patrones y valores atípicos que pueden ser cruciales para la toma de decisiones en recursos humanos. La capacidad de comparar datos filtrados con todos los empleados proporciona una perspectiva más completa y permite una evaluación más precisa del rendimiento de los empleados.
+
+## Instrucciones de Uso
+
+1. Clona este repositorio en tu máquina local.
+2. Asegúrate de tener R y RStudio instalados.
+3. Instala las librerías necesarias ejecutando `install.packages(c("dplyr", "readr", "shiny", "ggplot2", "DT", "plotly", "corrplot"))`.
+4. Ejecuta el script de R para iniciar la aplicación Shiny.
+5. Abre la aplicación en tu navegador web y comienza a explorar los datos utilizando los filtros y visualizaciones disponibles.
+
+## Contribuciones
+
+Siéntete libre de contribuir a este proyecto abriendo un issue o enviando un pull request con mejoras o nuevas funcionalidades.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
